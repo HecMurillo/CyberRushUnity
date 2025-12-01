@@ -44,7 +44,17 @@ public class Jugador : MonoBehaviour
 
         if (collision.gameObject.tag == "Obstaculo")
         {
-            gameManager.gameOver = true;
+            gameManager.vidas--;
+            
+            if (gameManager.vidasText != null)
+            {
+                gameManager.vidasText.text = "Vidas: " + gameManager.vidas.ToString();
+            }
+
+            if (gameManager.vidas <= 0)
+            {
+                gameManager.gameOver = true;
+            }
         }
     }
 }

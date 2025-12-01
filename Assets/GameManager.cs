@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     public int score = 0;        // score redondeado
     public TMPro.TextMeshProUGUI scoreText;
 
+    // VIDAS
+    public int vidas = 3;
+    public TMPro.TextMeshProUGUI vidasText;
+
     public GameObject menuInicio;
     public GameObject menuGameOver;
 
@@ -26,11 +30,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Ocultar score al inicio
+        // Ocultar score y vidas al inicio
         if (scoreText != null)
         {
             scoreText.gameObject.SetActive(false);
             scoreText.text = "Score: 0";
+        }
+
+        if (vidasText != null)
+        {
+            vidasText.gameObject.SetActive(false);
+            vidasText.text = "Vidas: 3";
         }
 
         // Crear Mapa
@@ -56,11 +66,18 @@ public class GameManager : MonoBehaviour
 
                 scoreFloat = 0;
                 score = 0;
+                vidas = 3;
 
                 if (scoreText != null)
                 {
                     scoreText.gameObject.SetActive(true);
                     scoreText.text = "Score: 0";
+                }
+
+                if (vidasText != null)
+                {
+                    vidasText.gameObject.SetActive(true);
+                    vidasText.text = "Vidas: 3";
                 }
             }
         }
